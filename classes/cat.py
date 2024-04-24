@@ -1,8 +1,11 @@
-class Cat:
+from classes.mammal import Mammal
 
-    def __init__(self, name, rested, lives_remaining=9):
-        self.name = name
-        self.rested = rested
+class Cat(Mammal):
+
+    def __init__(self, name, rested=True, lives_remaining=9):
+        # self.name = name
+        # self.rested = rested
+        super().__init__(name=name, rested = rested)
         self.lives_remaining = lives_remaining
 
     def __repr__(self):
@@ -12,7 +15,13 @@ class Cat:
         return "generic mammal sound"
 
     def sleep(self):
-        self.rested = True
+        super().sleep()
+        print("zzzzz")
+        # self.rested = True
+
+    def take_a_nap(self):
+        super().sleep()
+        print("napping")
 
     def run_around(self):
         self.rested = False
